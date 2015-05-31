@@ -14,6 +14,8 @@ app.controller('PageController', require('./pages/page/page-controller.js'));
 app.directive('icon', require('./components/icon/icon'));
 app.controller('IconController', require('./components/icon/icon-controller.js'));
 
+app.value('Profile', require('./services/profile'));
+
 app.config([
   '$locationProvider',
   '$routeProvider',
@@ -24,7 +26,7 @@ app.config([
       .when('/', {
         template: require('./pages/page/page-template.jade'),
         controller: 'PageController',
-        controllerAs: 'vm'
+        controllerAs: 'page'
       })
       .otherwise({
         redirectTo: '/'

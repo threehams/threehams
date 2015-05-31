@@ -1,4 +1,59 @@
-div.header
-div.container
-  svg.icon
-    use(xlink:href='#icon-check')
+header
+  section
+    h1.header-full-name David Edmondson
+    h2.header-job-title Web Developer
+  section
+    h2.header-cenetered
+      | Expertise
+    icon(icon-id="'#check'")
+    ul.centered-list
+      li.centered-list-item(ng-repeat='expertise in page.user.expertise') {{ expertise }}
+  section
+    h2
+      | Tech Skill Set
+    icon(icon-id="'#mouse'")
+    ul.centered-list
+      li.centered-list-item(ng-repeat='skill in page.user.skills') {{ skill }}
+main
+  section.profile
+    h2.icon-header
+      icon.icon-header-icon(icon-id="'#mouse'")
+      span Profile
+    p Fullstack developer doing stuff, with 4 years experience in something, something, and something things.
+  section.experience
+
+    h2.icon-header
+      icon.icon-header-icon(icon-id="'#mouse'")
+      | Experience
+    ul.offset-list
+      li.offset-list-item(ng-repeat='job in page.user.jobs')
+        .subtitle-header
+          h2.subtitle-header-title {{ job.title }}
+          strong {{ job.company }} - {{ job.companyLocation }}
+        p
+          strong {{ job.startDate | date: 'MMM yyyy' }} - {{ job.endDate | date: 'MMM yyyy' }}
+          |  {{ job.summary }}
+        ul
+          li(ng-repeat='accomplishment in job.accomplishments') {{ accomplishment }}
+
+
+    h2.icon-header
+      icon.icon-header-icon(icon-id="'#mouse'")
+      | Education
+    ul.offset-list
+      li.offset-list-item
+        h2
+          | {{ page.user.education.degree }}
+        p
+          strong {{ page.user.education.date | date: 'MMM yyyy' }}
+          span {{ page.user.education.college }}
+
+  footer
+    icon.contact-box-icon(icon-id="'#check'")
+    .contact-box
+      .contact-box-info
+        strong {{ page.user.address }}, {{ page.user.zipcode }}
+        strong {{ page.user.email }}
+      .contact-box-info
+        strong {{ page.user.phone }}
+        strong {{ page.user.link }}

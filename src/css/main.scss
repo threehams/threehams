@@ -1,15 +1,8 @@
+// SCSS entry point. There should only be @import statements here.
+@import 'reset';
 @import 'mixins';
 @import 'constants';
-@import 'base';
 
-.hide {
-  display: none;
-}
-
-.header {
-  height: 200px;
-  background-color: $non-photo-blue;
-}
-
+// Component styles - Angular doesn't provide a way to package these into the component itself.
 @import '../js/components/icon/icon-style';
 @import '../js/pages/page/page-style';

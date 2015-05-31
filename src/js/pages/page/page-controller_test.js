@@ -3,7 +3,7 @@
 describe('PageController', function() {
   var that = this;
 
-  beforeEach(angular.mock.module('SampleApp'));
+  beforeEach(angular.mock.module('Resume'));
   beforeEach(inject(function($rootScope, _$controller_) {
     that.scope = $rootScope;
     that.controller = _$controller_;
