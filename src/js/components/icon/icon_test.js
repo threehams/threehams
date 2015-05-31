@@ -1,14 +1,14 @@
 'use strict';
 
-describe('component', function() {
+describe('icon', function() {
   var that = this;
 
-  beforeEach(angular.mock.module('SampleApp'));
+  beforeEach(angular.mock.module('Resume'));
   beforeEach(inject(function ($rootScope, _$compile_) {
     that.$compile = _$compile_;
     that.scope = $rootScope.$new();
 
-    that.element = angular.element('<component></component>');
+    that.element = angular.element('<icon></icon>');
     that.element = that.$compile(that.element)(that.scope);
     that.scope.$digest();
     that.isolate = that.element.isolateScope();

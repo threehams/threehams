@@ -7,8 +7,8 @@ module.exports = function() {
       data: '='
     },
     replace: true,
-    template: require('./component-template.jade'),
-    controller: require('./component-controller'),
+    template: require('./icon-template.jade'),
+    controller: require('./icon-controller'),
     controllerAs: 'vm',
     bindToController: true
   };

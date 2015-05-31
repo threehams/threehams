@@ -5,14 +5,14 @@ require('angular-route');
 require('angular-animate');
 global._ = require('lodash');
 
-var app = angular.module('SampleApp', ['ngRoute', 'ngAnimate']);
+var app = angular.module('Resume', ['ngRoute', 'ngAnimate']);
 
 // pages
 app.controller('PageController', require('./pages/page/page-controller.js'));
 
 // components (controllers exposed for testing)
-app.directive('component', require('./components/component/component'));
-app.controller('ComponentController', require('./components/component/component-controller.js'));
+app.directive('icon', require('./components/icon/icon'));
+app.controller('IconController', require('./components/icon/icon-controller.js'));
 
 app.config([
   '$locationProvider',

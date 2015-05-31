@@ -1,0 +1,13 @@
+.container {
+  align-items: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.icon {
+  width: 75px;
+  height: 75px;
+}
