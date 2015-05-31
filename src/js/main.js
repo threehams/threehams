@@ -16,12 +16,6 @@ app.controller('PageController', require('./pages/page/page-controller.js'));
 app.directive('component', require('./components/component/component'));
 app.controller('ComponentController', require('./components/component/component-controller.js'));
 
-// resources
-app.factory('ResourceService', require('./services/resource-service'));
-
-// custom validators
-app.directive('match', require('./validators/match'));
-
 app.config([
   '$locationProvider',
   '$routeProvider',

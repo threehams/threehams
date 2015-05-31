@@ -10,7 +10,6 @@ var del = require('del');
 var path = require('path');
 var runSequence = require('run-sequence');
 var jadeify = require('jadeify');
-var nodemon = require('nodemon');
 var sass = require('gulp-sass');
 var reload = browserSync.reload;
 var autoprefixer = require('gulp-autoprefixer');
@@ -19,21 +18,24 @@ var uglify = require('gulp-uglify');
 var streamify = require('gulp-streamify');
 var gzip = require('gulp-gzip');
 var pngquant = require('imagemin-pngquant');
+var connect = require('gulp-connect');
 
 gulp.task('clean', function (callback) {
-  return del(['./dist'], callback);
+  return del(['./css', './img', './js'], callback);
 });
 
 gulp.task('sass', function() {
-  return buildSass().pipe(gulp.dest('./dist/css/')).pipe(reload({stream: true}));
+  return buildSass().pipe(gulp.dest('./css/')).pipe(reload({stream: true}));
 });
 
 gulp.task('deploy-sass', function() {
-  return buildSass().pipe(gzip()).pipe(gulp.dest('./dist/css/'));
+  return buildSass()
+    .pipe(gzip())
+    .pipe(gulp.dest('./css/'));
 });
 
 function buildSass() {
-  return gulp.src('./client/css/main.scss')
+  return gulp.src('./src/css/main.scss')
     .pipe(sass())
     .on('error', function(err) {
       // don't crash, just log the error!
@@ -48,14 +50,14 @@ function buildSass() {
 }
 
 gulp.task('vendor', function() {
-  return buildVendor().pipe(gulp.dest('./dist/js'));
+  return buildVendor().pipe(gulp.dest('./js'));
 });
 
 gulp.task('deploy-vendor', function() {
-  return buildVendor().pipe(streamify(uglify()))
-
+  return buildVendor()
+    .pipe(streamify(uglify()))
     .pipe(gzip())
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest('./js'));
 });
 
 function buildVendor() {
@@ -64,27 +66,23 @@ function buildVendor() {
     .require('angular')
     .require('angular-route')
     .require('angular-animate')
-    .require('angular-messages')
-    .require('angular-touch')
     .bundle()
     .pipe(source('vendor.js'));
 }
 
 gulp.task('deploy-bundle', function() {
   return browserify()
-    .add('./client/js/main.js')
+    .add('./src/js/main.js')
     .external('lodash')
     .external('angular')
     .external('angular-route')
     .external('angular-animate')
-    .external('angular-messages')
-    .external('angular-touch')
     .transform(jadeify)
     .bundle()
     .pipe(source('main.js'))
-    .pipe(streamify(uglify()))
+    //.pipe(streamify(uglify())) // Allow inspection
     .pipe(gzip())
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest('./js'));
 });
 
 gulp.task('watch', function () {
@@ -96,19 +94,16 @@ gulp.task('watch', function () {
     open: false
   });
 
-  gulp.watch('client/**/*.scss', ['sass']);
-  gulp.watch(['client/**/*.html', 'client/**/*.css', 'client/**/*.svg', 'client/**/*.jpg', 'client/vid/*.*'], ['copy-static-files']);
-  gulp.watch('client/**/*.png', ['process-png']);
-  gulp.watch('server/**/*.js', ['mocha']);
+  gulp.watch('src/**/*.scss', ['sass']);
+  gulp.watch(['src/**/*.html', 'src/**/*.css', 'src/**/*.svg', 'src/**/*.jpg', 'src/vid/*.*'], ['copy-static-files']);
+  gulp.watch('src/**/*.png', ['process-png']);
 
   bundler
-    .add('./client/js/main.js')
+    .add('./src/js/main.js')
     .external('lodash')
     .external('angular')
     .external('angular-route')
     .external('angular-animate')
-    .external('angular-messages')
-    .external('angular-touch')
     .transform(jadeify)
     .on('update', rebundle);
   return rebundle();
@@ -121,7 +116,7 @@ gulp.task('watch', function () {
         console.log(err.stack);
       })
       .pipe(source('main.js'))
-      .pipe(gulp.dest('./dist/js'))
+      .pipe(gulp.dest('./js'))
       .pipe(reload({stream: true, once: true}));
   }
 });
@@ -130,41 +125,43 @@ gulp.task('process-static-files', function () {
 });
 
 gulp.task('copy-static-files', function() {
-  return gulp.src(['./client/**/*.html', './client/**/*.css', 'client/**/*.svg', 'client/**/*.jpg', 'client/**/*.mp4'])
-    .pipe(gulp.dest('dist/'))
+  return gulp.src(['./src/**/*.html', './src/**/*.css', 'src/**/*.svg', 'src/**/*.jpg', 'src/**/*.mp4'])
+    .pipe(gulp.dest('./'))
     .pipe(reload({stream: true}));
 });
 
 gulp.task('process-png', function() {
-  return gulp.src(['./client/**/*.png'])
+  return gulp.src(['./src/**/*.png'])
     .pipe(pngquant({quality: '65-80', speed: 4 })())
-    .pipe(gulp.dest('dist/'));
-});
-gulp.task('connect-dist', function () {
-  nodemon({
-    script: 'server/index.js',
-    env: {
-      'PORT': 8888
-    },
-    nodeArgs: ['--harmony-generators'],
-    watch: './server'
-  }).on('restart', function (files) {
-    console.log('App restarted due to: ', files);
-  });
+    .pipe(gulp.dest('.'));
 });
 
-gulp.task('mocha', function() {
-  var mocha = require('gulp-spawn-mocha');
-  return gulp.src(['./server/test/**/*_test.js'])
-    .pipe(mocha({
-      harmonyGenerators: true,
-      ui: 'bdd',
-      reporter: 'progress'
-    }))
-    .on('error', function() {
-      this.emit('end'); // without this, can't start watching tests if one is broken
-    });
-});
+//gulp.task('connect-dist', function () {
+//  nodemon({
+//    script: 'server/index.js',
+//    env: {
+//      'PORT': 8888
+//    },
+//    nodeArgs: ['--harmony-generators'],
+//    watch: './server'
+//  }).on('restart', function (files) {
+//    console.log('App restarted due to: ', files);
+//  });
+//});
+
+//gulp.task('mocha', function() {
+//  var mocha = require('gulp-spawn-mocha');
+//  return gulp.src(['./server/test/**/*_test.js'])
+//    .pipe(mocha({
+//      harmonyGenerators: true,
+//      ui: 'bdd',
+//      reporter: 'progress'
+//    }))
+//    .on('error', function() {
+//      this.emit('end'); // without this, can't start watching tests if one is broken
+//    });
+//});
+
 
 gulp.task('karma', function() {
   var karma = require('karma');
@@ -175,12 +172,18 @@ gulp.task('karma', function() {
   });
 });
 
+gulp.task('connect', function() {
+  connect.server({
+    port: 8888
+  });
+});
+
 gulp.task('default', function() {
-  runSequence('clean', 'build', 'mocha', 'karma');
+  runSequence('clean', 'build', 'karma');
 });
 
 gulp.task('build',
-  ['vendor', 'watch', 'sass', 'process-static-files', 'connect-dist']
+  ['vendor', 'watch', 'sass', 'process-static-files', 'connect']
 );
 
 gulp.task('deploy', function() {

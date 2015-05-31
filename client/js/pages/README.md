@@ -1,1 +1,0 @@
-Pages, which aren't components yet, but will be very soon
