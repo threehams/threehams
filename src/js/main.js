@@ -3,11 +3,9 @@
 require('angular');
 require('angular-route');
 require('angular-animate');
-require('angular-messages');
 global._ = require('lodash');
-global.moment = require('moment');
 
-var app = angular.module('SampleApp', ['ngRoute', 'ngAnimate', 'ngMessages']);
+var app = angular.module('SampleApp', ['ngRoute', 'ngAnimate']);
 
 // pages
 app.controller('PageController', require('./pages/page/page-controller.js'));

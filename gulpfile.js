@@ -25,13 +25,9 @@ gulp.task('clean', function (callback) {
 });
 
 gulp.task('sass', function() {
-  return buildSass().pipe(gulp.dest('./css/')).pipe(reload({stream: true}));
-});
-
-gulp.task('deploy-sass', function() {
   return buildSass()
-    .pipe(gzip())
-    .pipe(gulp.dest('./css/'));
+    .pipe(gulp.dest('./css/'))
+    .pipe(reload({stream: true}));
 });
 
 function buildSass() {
@@ -50,13 +46,8 @@ function buildSass() {
 }
 
 gulp.task('vendor', function() {
-  return buildVendor().pipe(gulp.dest('./js'));
-});
-
-gulp.task('deploy-vendor', function() {
   return buildVendor()
     .pipe(streamify(uglify()))
-    .pipe(gzip())
     .pipe(gulp.dest('./js'));
 });
 
@@ -69,21 +60,6 @@ function buildVendor() {
     .bundle()
     .pipe(source('vendor.js'));
 }
-
-gulp.task('deploy-bundle', function() {
-  return browserify()
-    .add('./src/js/main.js')
-    .external('lodash')
-    .external('angular')
-    .external('angular-route')
-    .external('angular-animate')
-    .transform(jadeify)
-    .bundle()
-    .pipe(source('main.js'))
-    //.pipe(streamify(uglify())) // Allow inspection
-    .pipe(gzip())
-    .pipe(gulp.dest('./js'));
-});
 
 gulp.task('watch', function () {
   var bundler = watchify(browserify({ cache: {}, packageCache: {}, fullPaths: true, debug: true}));
@@ -117,6 +93,7 @@ gulp.task('watch', function () {
       })
       .pipe(source('main.js'))
       .pipe(gulp.dest('./js'))
+      //.pipe(gzip())
       .pipe(reload({stream: true, once: true}));
   }
 });
@@ -135,33 +112,6 @@ gulp.task('process-png', function() {
     .pipe(pngquant({quality: '65-80', speed: 4 })())
     .pipe(gulp.dest('.'));
 });
-
-//gulp.task('connect-dist', function () {
-//  nodemon({
-//    script: 'server/index.js',
-//    env: {
-//      'PORT': 8888
-//    },
-//    nodeArgs: ['--harmony-generators'],
-//    watch: './server'
-//  }).on('restart', function (files) {
-//    console.log('App restarted due to: ', files);
-//  });
-//});
-
-//gulp.task('mocha', function() {
-//  var mocha = require('gulp-spawn-mocha');
-//  return gulp.src(['./server/test/**/*_test.js'])
-//    .pipe(mocha({
-//      harmonyGenerators: true,
-//      ui: 'bdd',
-//      reporter: 'progress'
-//    }))
-//    .on('error', function() {
-//      this.emit('end'); // without this, can't start watching tests if one is broken
-//    });
-//});
-
 
 gulp.task('karma', function() {
   var karma = require('karma');
@@ -184,12 +134,4 @@ gulp.task('default', function() {
 
 gulp.task('build',
   ['vendor', 'watch', 'sass', 'process-static-files', 'connect']
-);
-
-gulp.task('deploy', function() {
-    runSequence(
-      'clean',
-      ['deploy-vendor', 'deploy-bundle', 'deploy-sass', 'process-static-files']
-    );
-  }
 );
