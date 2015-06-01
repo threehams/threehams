@@ -1,24 +1,65 @@
-// sizes
+// Breakpoints, usually no more than 2.
 $desktop-width: 768px;
 
-// theme colors
-$non-photo-blue: #A4DDED;
+// Colors used universally.
+$header-color: #d5e5e4;
+$footer-color: #f2f1eb;
+$font-color: #444444;
 
-// fonts
+// Fonts declared globally. Fonts outside of this file should be extremely rare.
+@media print {
+  @page {
+    //size: 210mm 297mm;
+    margin: 0;
+  }
+}
+
 body {
-  font-family: 'Open Sans', 'Times New Roman', sans-serif;
+  font-family: 'Lato', sans-serif;
+  color: $font-color;
+
+  @media print {
+    zoom: 65%;
+  }
 }
 
 h1 {
-  font-size: 40px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 50px 0;
+
+  @include desktop {
+    font-size: 50px;
+    letter-spacing: 6px;
+  }
 }
 
 h2 {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 10px 0;
 
+  @include desktop {
+    font-size: 28px;
+    letter-spacing: 4px;
+  }
 }
 
-h3 {
+strong {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 6px 0 0;
 
+  @include desktop {
+    letter-spacing: 1px;
+    font-size: 15px;
+  }
 }
 
 ul {
@@ -27,4 +68,12 @@ ul {
 
 li {
 
+}
+
+.hide {
+  display: none;
+}
+
+p {
+  margin: 0 0 10px 0;
 }

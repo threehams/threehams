@@ -4,7 +4,7 @@ module.exports = function() {
   return {
     restrict: 'E',
     scope: {
-      data: '='
+      iconId: '='
     },
     replace: true,
     template: require('./icon-template.jade'),

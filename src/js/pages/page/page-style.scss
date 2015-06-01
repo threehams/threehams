@@ -1,13 +1,176 @@
-.container {
-  align-items: flex-start;
-  align-content: flex-start;
+$border-divider: 2px solid $font-color;
+$padding-page-top: 20px; // plus section padding
+$padding-page-bottom: 20px; // plus section padding
+$padding-print-top: 40px;
+$section-padding-vertical: 20px;
+$section-padding-horizontal: 30px;
+$main-margin: 60px;
+
+.page {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-flow: column nowrap;
+
+  @include desktop {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    flex-flow: row nowrap;
+    margin: 0 auto;
+  }
+
+  @include desktop-exclude-print {
+    max-width: 1100px;
+  }
 }
 
-.icon {
-  width: 75px;
-  height: 75px;
+header {
+  $padding-side: 20px;
+  background-color: $header-color;
+  text-align: center;
+
+  & > section {
+    padding: $section-padding-vertical 0;
+  }
+
+  & > section:not(:last-child) {
+    border-bottom: $border-divider;
+  }
+
+  @include desktop {
+    flex: 0 0 270px + ($padding-side * 2);
+    padding: $padding-page-top $padding-side $padding-page-bottom $padding-side;
+  }
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+
+  & > section {
+    padding: $section-padding-vertical 0;
+    margin: 0 $section-padding-horizontal;
+
+    @include desktop {
+      margin: 0 $section-padding-horizontal;
+    }
+  }
+
+  @include desktop {
+    padding-top: $padding-page-top;
+  }
+}
+
+footer {
+  padding: 20px 20px $padding-page-bottom 20px;
+  background-color: $footer-color;
+
+  @include desktop {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 20px $section-padding-horizontal $padding-page-bottom $section-padding-horizontal;
+  }
+}
+
+.contact-box {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  @include desktop {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+
+.contact-box-icon {
+  //display: none;
+  margin-right: 15px;
+
+  @include desktop {
+    display: initial;
+  }
+}
+
+.contact-box-info {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-right: 15px;
+
+  @include desktop {
+    justify-content: space-around;
+  }
+}
+
+.profile {
+  border-bottom: $border-divider;
+}
+
+.experience {
+  flex: 1 0 auto;
+}
+
+.header-centered {
+  text-align: center;
+}
+
+.centered-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height: 40px;
+}
+
+.icon-header {
+  display: flex;
+  align-items: center;
+}
+
+.icon-header-icon {
+  margin-right: 10px;
+}
+
+.offset-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  @include desktop {
+    margin-left: 25px;
+    border-left: 1px solid $font-color;
+  }
+}
+
+.offset-list-item {
+  margin-bottom: 20px;
+
+  @include desktop {
+    margin-left: 20px;
+    position: relative;
+
+    &:before {
+      $size: 15px;
+
+      background-color: white;
+      border-radius: 50%;
+      border: 2px solid $font-color;
+      content: "";
+      display: block;
+      height: $size;
+      left: -21px - ($size / 2); // -1px to account for border
+      position: absolute;
+      top: ($size / 2);
+      width: $size;
+    }
+  }
+}
+
+.subtitle-header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.subtitle-header-title {
+  margin-bottom: 0;
+  margin-right: 10px;
 }

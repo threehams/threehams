@@ -1,6 +1,7 @@
 'use strict';
 
-module.exports = [function () {
-  var vm = this;
+module.exports = ['Profile', function (Profile) {
+  var page = this;
 
+  page.user = Profile;
 }];

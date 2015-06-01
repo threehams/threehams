@@ -1,4 +1,13 @@
+// All global mixins go in here.
+
+// Media query for desktop. Without this, all CSS is implicitly for mobile.
 @mixin desktop {
+  @media print, (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktop-exclude-print {
   @media (min-width: #{$desktop-width}) {
     @content;
   }

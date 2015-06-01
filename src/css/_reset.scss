@@ -1,0 +1,13 @@
+// Most resets are overridden by the end of the project, making them eventually unnecessary.
+// I keep this file as light as possible.
+body, figure {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
