@@ -12,7 +12,7 @@ module.exports = {
   education: {
     degree: 'Bachelor of Fine Arts - Film and Animation',
     college: 'Rochester Institute of Technology',
-    date: new Date(2005, 6)
+    date: new Date(2005, 4)
   },
   jobs: [
     {
