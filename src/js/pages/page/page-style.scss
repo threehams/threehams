@@ -108,6 +108,34 @@ footer {
   }
 }
 
+.view-source {
+  display: none;
+
+  @include desktop-exclude-print {
+    $width: 100px;
+    $height: 20px;
+
+    box-sizing: content-box;
+    background-color: $header-color;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    color: $font-color;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    position: fixed;
+    right: -(($width / 2) - ($height / 2));
+    top: 50%;
+    text-align: center;
+    transform: rotateZ(90deg);
+    width: $width;
+    height: $height;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
 // Reusable components - gradually move into full Angular components
 .icon-header {
   display: flex;
