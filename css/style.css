@@ -7,9 +7,17 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+@media print {
+  @page {
+    margin: 0; }
+ }
+
 body {
   font-family: 'Lato', sans-serif;
   color: #444444; }
+  @media print {
+    body {
+      zoom: 65%; } }
 
 h1 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -68,8 +76,10 @@ p {
       -webkit-flex-flow: row nowrap;
           -ms-flex-flow: row nowrap;
               flex-flow: row nowrap;
-      max-width: 1100px;
       margin: 0 auto; } }
+  @media (min-width: 768px) {
+    .page {
+      max-width: 1100px; } }
 
 header {
   background-color: #d5e5e4;
@@ -83,7 +93,7 @@ header {
       -webkit-flex: 0 0 310px;
           -ms-flex: 0 0 310px;
               flex: 0 0 310px;
-      padding: 60px 20px 60px 20px; } }
+      padding: 20px 20px 20px 20px; } }
 
 main {
   display: -webkit-flex;
@@ -94,16 +104,16 @@ main {
           flex-flow: column nowrap; }
   main > section {
     padding: 20px 0;
-    margin: 0 20px; }
+    margin: 0 30px; }
     @media print, (min-width: 768px) {
       main > section {
-        margin: 0 60px; } }
+        margin: 0 30px; } }
   @media print, (min-width: 768px) {
     main {
-      padding-top: 60px; } }
+      padding-top: 20px; } }
 
 footer {
-  padding: 20px 20px 60px 20px;
+  padding: 20px 20px 20px 20px;
   background-color: #f2f1eb; }
   @media print, (min-width: 768px) {
     footer {
@@ -113,7 +123,7 @@ footer {
       -webkit-flex-flow: row nowrap;
           -ms-flex-flow: row nowrap;
               flex-flow: row nowrap;
-      padding: 20px 60px 60px 60px; } }
+      padding: 20px 30px 20px 30px; } }
 
 .contact-box {
   width: 100%;
@@ -203,9 +213,9 @@ footer {
         content: "";
         display: block;
         height: 15px;
-        left: -27.5px;
+        left: -28.5px;
         position: absolute;
-        top: 50%;
+        top: 7.5px;
         width: 15px; } }
 
 .subtitle-header {
@@ -217,7 +227,9 @@ footer {
           flex-flow: row wrap;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  margin-bottom: 15px; }
 
 .subtitle-header-title {
+  margin-bottom: 0;
   margin-right: 10px; }

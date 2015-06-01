@@ -5,10 +5,22 @@ $desktop-width: 768px;
 $header-color: #d5e5e4;
 $footer-color: #f2f1eb;
 $font-color: #444444;
+
 // Fonts declared globally. Fonts outside of this file should be extremely rare.
+@media print {
+  @page {
+    //size: 210mm 297mm;
+    margin: 0;
+  }
+}
+
 body {
   font-family: 'Lato', sans-serif;
   color: $font-color;
+
+  @media print {
+    zoom: 65%;
+  }
 }
 
 h1 {

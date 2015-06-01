@@ -1,7 +1,7 @@
 header
   section
-    h1.header-full-name David Edmondson
-    h2.header-job-title Web Developer
+    h1.header-full-name {{ page.user.name }}
+    h2.header-job-title {{ page.user.title }}
   section
     h2.header-cenetered
       | Expertise
@@ -11,19 +11,18 @@ header
   section
     h2
       | Tech Skill Set
-    icon(icon-id="'#mouse'")
+    icon(icon-id="'#markup'")
     ul.centered-list
       li.centered-list-item(ng-repeat='skill in page.user.skills') {{ skill }}
 main
   section.profile
     h2.icon-header
-      icon.icon-header-icon(icon-id="'#mouse'")
+      icon.icon-header-icon(icon-id="'#profile'")
       span Profile
-    p Fullstack developer doing stuff, with 4 years experience in something, something, and something things.
+    p {{ page.user.profile }}
   section.experience
-
     h2.icon-header
-      icon.icon-header-icon(icon-id="'#mouse'")
+      icon.icon-header-icon(icon-id="'#briefcase'")
       | Experience
     ul.offset-list
       li.offset-list-item(ng-repeat='job in page.user.jobs')
@@ -32,13 +31,23 @@ main
           strong {{ job.company }} - {{ job.companyLocation }}
         p
           strong {{ job.startDate | date: 'MMM yyyy' }} - {{ job.endDate | date: 'MMM yyyy' }}
-          |  {{ job.summary }}
+          | {{ job.summary }}
         ul
           li(ng-repeat='accomplishment in job.accomplishments') {{ accomplishment }}
 
+    h2.icon-header
+      icon.icon-header-icon(icon-id="'#fork'")
+      | Projects
+    ul.offset-list
+      li.offset-list-item(ng-repeat='project in page.user.projects')
+        h2 {{ project.name }}
+        p
+          | {{ project.summary }} &nbsp;
+          a(href="{{ project.link }}")
+            | {{ project.link }}
 
     h2.icon-header
-      icon.icon-header-icon(icon-id="'#mouse'")
+      icon.icon-header-icon(icon-id="'#pencil'")
       | Education
     ul.offset-list
       li.offset-list-item
@@ -48,8 +57,9 @@ main
           strong {{ page.user.education.date | date: 'MMM yyyy' }}
           span {{ page.user.education.college }}
 
+
   footer
-    icon.contact-box-icon(icon-id="'#check'")
+    icon.contact-box-icon(icon-id="'#contact'")
     .contact-box
       .contact-box-info
         strong {{ page.user.address }}, {{ page.user.zipcode }}
