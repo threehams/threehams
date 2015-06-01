@@ -5,11 +5,11 @@ $desktop-width: 768px;
 $header-color: #d5e5e4;
 $footer-color: #f2f1eb;
 $font-color: #444444;
+$h2-bottom-margin: 10px;
 
 // Fonts declared globally. Fonts outside of this file should be extremely rare.
 @media print {
   @page {
-    //size: 210mm 297mm;
     margin: 0;
   }
 }
@@ -62,7 +62,7 @@ h2 {
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 2px;
-  margin: 0 0 10px 0;
+  margin: 0 0 $h2-bottom-margin 0;
   text-transform: uppercase;
 
   @include desktop {

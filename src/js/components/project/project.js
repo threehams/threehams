@@ -4,11 +4,11 @@ module.exports = function() {
   return {
     restrict: 'E',
     scope: {
-      iconId: '@'
+      data: '='
     },
     replace: true,
-    template: require('./icon-template.jade'),
-    controller: require('./icon-controller'),
+    template: require('./project-template.jade'),
+    controller: require('./project-controller'),
     controllerAs: 'vm',
     bindToController: true
   };

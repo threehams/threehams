@@ -1,71 +1,60 @@
 header
   section
-    h1.header-full-name {{ page.user.name }}
-    h2.header-job-title {{ page.user.title }}
+    h1.header-full-name {{ ::page.user.name }}
+    h2.header-job-title {{ ::page.user.title }}
   section
     h2.header-cenetered
       | Expertise
-    icon(icon-id="'#check'")
+    icon(icon-id="#check")
     ul.centered-list
-      li.centered-list-item(ng-repeat='expertise in page.user.expertise') {{ expertise }}
+      li.centered-list-item(ng-repeat='expertise in ::page.user.expertise') {{ ::expertise }}
   section
     h2
       | Tech Skill Set
-    icon(icon-id="'#markup'")
+    icon(icon-id="#markup")
     ul.centered-list
-      li.centered-list-item(ng-repeat='skill in page.user.skills') {{ skill }}
+      li.centered-list-item(ng-repeat='skill in ::page.user.skills') {{ ::skill }}
 main
   section.profile
     h2.icon-header
-      icon.icon-header-icon(icon-id="'#profile'")
+      icon.icon-header-icon(icon-id="#profile")
       span Profile
-    p {{ page.user.profile }}
+    p {{ ::page.user.profile }}
   section.experience
     h2.icon-header
-      icon.icon-header-icon(icon-id="'#briefcase'")
+      icon.icon-header-icon(icon-id="#briefcase")
       | Experience
     ul.offset-list
-      li.offset-list-item(ng-repeat='job in page.user.jobs')
-        .subtitle-header
-          h2.subtitle-header-title {{ job.title }}
-          strong {{ job.company }} - {{ job.companyLocation }}
-        p
-          strong {{ job.startDate | date: 'MMM yyyy' }} - {{ job.endDate | date: 'MMM yyyy' }}
-          | {{ job.summary }}
-        ul
-          li(ng-repeat='accomplishment in job.accomplishments') {{ accomplishment }}
+      li.offset-list-item(ng-repeat='job in ::page.user.jobs')
+        project(data='job')
 
     h2.icon-header
-      icon.icon-header-icon(icon-id="'#fork'")
+      icon.icon-header-icon(icon-id="#fork")
       | Projects
     ul.offset-list
-      li.offset-list-item(ng-repeat='project in page.user.projects')
-        h2 {{ project.name }}
-        p
-          | {{ project.summary }} &nbsp;
-          a(href="{{ project.link }}")
-            | {{ project.link }}
+      li.offset-list-item(ng-repeat='project in ::page.user.projects')
+        project(data='project')
+
 
     h2.icon-header
-      icon.icon-header-icon(icon-id="'#pencil'")
+      icon.icon-header-icon(icon-id="#pencil")
       | Education
     ul.offset-list
       li.offset-list-item
         h2
-          | {{ page.user.education.degree }}
+          | {{ ::page.user.education.degree }}
         p
-          strong {{ page.user.education.date | date: 'MMM yyyy' }}
-          span {{ page.user.education.college }}
-
+          strong {{ ::page.user.education.date | date: 'MMM yyyy' }}
+          span {{ ::page.user.education.college }}
 
   footer
-    icon.contact-box-icon(icon-id="'#contact'")
+    icon.contact-box-icon(icon-id="#contact")
     .contact-box
       .contact-box-info
-        strong {{ page.user.address }}, {{ page.user.zipcode }}
-        a(href='mailto:{{ page.user.email }}')
-          strong {{ page.user.email }}
+        strong {{ ::page.user.address }}, {{ ::page.user.zipcode }}
+        a(href='mailto:{{ ::page.user.email }}')
+          strong {{ ::page.user.email }}
       .contact-box-info
-        strong {{ page.user.phone }}
-        a(href='{{ page.user.link }}')
-          strong {{ page.user.link }}
+        strong {{ ::page.user.phone }}
+        a(href='{{ ::page.user.link }}')
+          strong {{ ::page.user.link }}

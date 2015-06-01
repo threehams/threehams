@@ -190,9 +190,6 @@ footer {
       -ms-flex: 1 0 auto;
           flex: 1 0 auto; }
 
-.header-centered {
-  text-align: center; }
-
 .centered-list {
   list-style-type: none;
   margin: 0;
@@ -248,7 +245,7 @@ footer {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 15px; }
+  margin-bottom: 10px; }
 
 .subtitle-header-title {
   margin-bottom: 0;

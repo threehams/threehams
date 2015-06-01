@@ -1,0 +1,10 @@
+div
+  .subtitle-header
+    h2.subtitle-header-title {{ ::vm.data.title }}
+    strong(ng-if='::vm.data.locationName') {{ ::vm.data.locationName }} - {{ ::vm.data.locationAddress }}
+  p
+    strong(ng-if='::vm.data.startDate') {{ ::vm.data.startDate | date: 'MMM yyyy' }} - {{ ::vm.data.endDate | date: 'MMM yyyy' }}
+    | {{ ::vm.data.summary }} &nbsp;
+    a(href="{{ ::vm.data.link }}" ng-if='::vm.data.link') {{ ::vm.data.link }}
+  ul.project-list(ng-if='::vm.data.accomplishments')
+    li.project-list-item(ng-repeat='accomplishment in ::vm.data.accomplishments') {{ ::accomplishment }}
