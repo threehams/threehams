@@ -19,8 +19,8 @@ module.exports = {
       title: 'Software Engineer',
       startDate: new Date(2012, 6),
       endDate: new Date(2015, 3),
-      company: 'Sweety High',
-      companyLocation: 'Marina Del Rey, CA',
+      locationName: 'Sweety High',
+      locationAddress: 'Marina Del Rey, CA',
       summary: 'Full-stack developer for a social networking site and mobile app API, using Rails, Node.js, jQuery, and Angular. Promoted from QA Engineer to Software Engineer within first year.',
       accomplishments: [
         'Built a content management system with Rails to organize all photos and videos, contests, and curated community photo/video playlists.',
@@ -35,8 +35,8 @@ module.exports = {
       title: 'QA Engineer',
       startDate: new Date(2010, 8),
       endDate: new Date(2011, 12),
-      company: 'Meteor Games',
-      companyLocation: 'Beverly Hills, CA',
+      locationName: 'Meteor Games',
+      locationAddress: 'Beverly Hills, CA',
       summary: 'Developed pipeline and testing tools and performed automated testing on four Facebook games. Promoted from QA Tester to QA Engineer within first year.',
       accomplishments: [
         'Analyzed workflows for 20 staff to identify sources of inefficiency, prioritize tasks, and develop content management and debugging tools, saving 4K man hours and $150K annually.',
@@ -49,17 +49,17 @@ module.exports = {
   ],
   projects: [
     {
-      name: 'Koangulpitestify',
+      title: 'Koangulpitestify',
       summary: 'Full-stack JS boilerplate project, used as a base for other projects. Includes Koa backend and Angular component-based frontend, and is entirely built on promises. Saving a file selectively triggers asset compilation, frontend/backend test runners, server restart, and browser reload as needed.',
       link: 'https://github.com/threehams/koangulpitestify'
     },
     {
-      name: 'Death Whimsy Roadmap',
+      title: 'Death Whimsy Roadmap',
       summary: 'Public site to show development progress of a game developed by Squid Blink Games. Written in Angular and Koa, with Flexbox and HTML5 Canvas. Pulls information from the Jira API and receives realtime updates using Jira webhooks.',
       link: 'https://github.com/threehams/death-whimsy-roadmap'
     },
     {
-      name: 'Game Prototypes',
+      title: 'Game Prototypes',
       summary: 'Four game prototypes using the Phaser game engine. Done to explore the design complexity of games, and performance difficulties in maintaining 60 frames per second.',
       link: 'https://github.com/threehams/phaser-game-prototypes'
     }

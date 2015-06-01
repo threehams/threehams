@@ -34,8 +34,9 @@ h1 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 50px;
   font-weight: 700;
-  text-transform: uppercase;
-  margin: 0 0 50px 0; }
+  letter-spacing: 2px;
+  margin: 0 0 50px 0;
+  text-transform: uppercase; }
   @media print, (min-width: 768px) {
     h1 {
       font-size: 50px;
@@ -44,10 +45,10 @@ h1 {
 h2 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 28px;
-  text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 1px;
-  margin: 0 0 10px 0; }
+  letter-spacing: 2px;
+  margin: 0 0 10px 0;
+  text-transform: uppercase; }
   @media print, (min-width: 768px) {
     h2 {
       font-size: 28px;
@@ -55,9 +56,9 @@ h2 {
 
 strong {
   font-size: 15px;
-  text-transform: uppercase;
   font-weight: 700;
-  margin: 0 6px 0 0; }
+  margin: 0 6px 0 0;
+  text-transform: uppercase; }
   @media print, (min-width: 768px) {
     strong {
       letter-spacing: 1px;
@@ -69,7 +70,7 @@ ul {
 li {
   white-space: normal; }
 
-.hide {
+body > svg {
   display: none; }
 
 p {
@@ -189,9 +190,6 @@ footer {
       -ms-flex: 1 0 auto;
           flex: 1 0 auto; }
 
-.header-centered {
-  text-align: center; }
-
 .centered-list {
   list-style-type: none;
   margin: 0;
@@ -247,7 +245,7 @@ footer {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 15px; }
+  margin-bottom: 10px; }
 
 .subtitle-header-title {
   margin-bottom: 0;
