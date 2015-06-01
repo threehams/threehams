@@ -43,13 +43,14 @@ header {
 main {
   display: flex;
   flex-flow: column nowrap;
+  width: 100%; // IE Flexbox bug workaround
 
   & > section {
     padding: $section-padding-vertical 0;
     margin: 0 $section-padding-horizontal;
 
     @include desktop {
-      margin: 0 $section-padding-horizontal;
+      margin: 0 $section-padding-horizontal + 20px 0 $section-padding-horizontal;
     }
   }
 

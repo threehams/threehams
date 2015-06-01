@@ -14,6 +14,26 @@ $font-color: #444444;
   }
 }
 
+a {
+  color: #006b64;
+
+  &:active {
+    color: $font-color;
+  }
+
+  &:hover, &:focus {
+    color: $font-color;
+  }
+
+  &:link {
+    color: #006b64;
+  }
+
+  &:visited {
+    color: #80b1ae;
+  }
+}
+
 body {
   font-family: 'Lato', sans-serif;
   color: $font-color;
@@ -67,7 +87,7 @@ ul {
 }
 
 li {
-
+  white-space: normal;
 }
 
 .hide {
