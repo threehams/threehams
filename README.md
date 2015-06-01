@@ -1,2 +1,2 @@
 # karmangulpify-template
-Live resume for David Edmondson. Curious? Take a look at /src.
+Live resume for David Edmondson. Curious? Page source is available in /src.

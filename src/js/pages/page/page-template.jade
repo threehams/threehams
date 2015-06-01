@@ -63,7 +63,9 @@ main
     .contact-box
       .contact-box-info
         strong {{ page.user.address }}, {{ page.user.zipcode }}
-        strong {{ page.user.email }}
+        a(href='mailto:{{ page.user.email }}')
+          strong {{ page.user.email }}
       .contact-box-info
         strong {{ page.user.phone }}
-        strong {{ page.user.link }}
+        a(href='{{ page.user.link }}')
+          strong {{ page.user.link }}
