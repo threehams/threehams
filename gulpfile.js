@@ -21,6 +21,7 @@ var pngquant = require('imagemin-pngquant');
 var connect = require('gulp-connect');
 var svgstore = require('gulp-svgstore');
 var svgmin = require('gulp-svgmin');
+var jade = require('gulp-jade');
 
 gulp.task('clean', function (callback) {
   return del(['./css', './img', './js'], callback);
@@ -74,6 +75,7 @@ gulp.task('watch', function () {
 
   gulp.watch('src/**/*.scss', ['sass']);
   gulp.watch(['src/**/*.html', 'src/**/*.css', 'src/**/*.jpg', 'src/vid/*.*'], ['copy-static-files']);
+  gulp.watch(['src/index.jade'], ['process-jade']);
   gulp.watch(['src/**/*.svg'], ['process-svg']);
   gulp.watch('src/**/*.png', ['process-png']);
 
@@ -100,8 +102,8 @@ gulp.task('watch', function () {
       .pipe(reload({stream: true, once: true}));
   }
 });
-gulp.task('process-static-files', function () {
-  runSequence(['copy-static-files', 'process-png', 'process-svg']);
+gulp.task('process-assets', function () {
+  runSequence(['copy-static-files', 'process-png', 'process-svg', 'process-jade']);
 });
 
 gulp.task('copy-static-files', function() {
@@ -119,8 +121,15 @@ gulp.task('process-png', function() {
 gulp.task('process-svg', function() {
   return gulp.src(['./src/img/icons/*.svg'])
     .pipe(svgmin())
-    .pipe(svgstore())
-    .pipe(gulp.dest('./img'));
+    .pipe(svgstore({inlineSvg: true}))
+    .pipe(gulp.dest('./src/img'));
+});
+
+gulp.task('process-jade', function() {
+  return gulp.src(['./src/index.jade'])
+    .pipe(jade({pretty: false}))
+    .pipe(gulp.dest('./'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('karma', function() {
@@ -143,5 +152,5 @@ gulp.task('default', function() {
 });
 
 gulp.task('build',
-  ['vendor', 'watch', 'sass', 'process-static-files', 'connect']
+  ['vendor', 'watch', 'sass', 'process-assets', 'connect']
 );
