@@ -8,7 +8,7 @@ module.exports = {
   email: 'davidaedmondson@gmail.com',
   phone: '818.804.7255',
   link: 'https://github.com/threehams',
-  profile: 'Full-stack developer with 4 years of experience in software development and QA engineering, specializing in automated testing and web development.',
+  profile: 'Full-stack developer with background in , with 4 years of experience in web development and test engineering.',
   education: {
     degree: 'Bachelor of Fine Arts - Film and Animation',
     college: 'Rochester Institute of Technology',
@@ -25,7 +25,7 @@ module.exports = {
       accomplishments: [
         'Built a content management system with Rails to organize all photos and videos, contests, and curated community photo/video playlists.',
         'Developed a community moderation system with Rails for approval and rejection of user posted text, photos, and videos.',
-        'Built a Ruby on Rails service that managed all website and mobile user authentication, authorization, account, relationship, and age verification',
+        'Built a Ruby on Rails service that managed all website and mobile user authentication, authorization, account, relationship, and age verification.',
         'Wrote a full suite of load tests, identified, removed, or optimized slow queries, and increased the number of possible requests per second by 400%.',
         'Wrote the backend API for the video creation, organization, and sharing section of the site.',
         'Integrated a Node.js API with a third-party moderation system using a reliable message queue.'
@@ -65,16 +65,17 @@ module.exports = {
     }
   ],
   expertise: [
-    'Javascript',
     'AngularJS',
-    'Node.js',
+    'Node.js / Hapi',
     'Ruby on Rails',
-    'Automated Testing'
+    'Test-Driven Development'
   ],
   skills: [
-    'Ruby on Rails',
     'AngularJS',
     'HTML/CSS',
-    'Node.js'
+    'Photoshop/Illustrator',
+    'PosgreSQL',
+    'Cassandra',
+    'Ruby on Rails'
   ]
 };
