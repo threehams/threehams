@@ -60,14 +60,22 @@ main {
 }
 
 footer {
-  padding: 20px 20px $padding-page-bottom 20px;
+  padding: 20px $section-padding-horizontal $padding-page-bottom $section-padding-horizontal;
   background-color: $footer-color;
+  display: flex;
+  flex-flow: row nowrap;
 
   @include desktop {
-    display: flex;
-    flex-flow: row nowrap;
     padding: 20px $section-padding-horizontal $padding-page-bottom $section-padding-horizontal;
   }
+}
+
+.profile {
+  border-bottom: $border-divider;
+}
+
+.experience {
+  flex: 1 0 auto;
 }
 
 .contact-box {
@@ -82,8 +90,8 @@ footer {
 }
 
 .contact-box-icon {
-  //display: none;
   margin-right: 15px;
+  flex: 0 0 auto;
 
   @include desktop {
     display: initial;
@@ -100,12 +108,31 @@ footer {
   }
 }
 
-.profile {
-  border-bottom: $border-divider;
+// Reusable components - gradually move into full Angular components
+.icon-header {
+  display: flex;
+  align-items: center;
 }
 
-.experience {
-  flex: 1 0 auto;
+.icon-header-icon {
+  margin-right: 10px;
+}
+
+.subtitle-header {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column wrap;
+  margin-bottom: $h2-bottom-margin;
+
+  @include desktop {
+    flex-flow: row wrap;
+    align-items: center;
+  }
+}
+
+.subtitle-header-title {
+  margin-bottom: 0;
+  margin-right: 10px;
 }
 
 .centered-list {
@@ -114,15 +141,6 @@ footer {
   padding: 0;
   text-align: center;
   line-height: 40px;
-}
-
-.icon-header {
-  display: flex;
-  align-items: center;
-}
-
-.icon-header-icon {
-  margin-right: 10px;
 }
 
 .offset-list {
@@ -158,16 +176,4 @@ footer {
       width: $size;
     }
   }
-}
-
-.subtitle-header {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  margin-bottom: $h2-bottom-margin;
-}
-
-.subtitle-header-title {
-  margin-bottom: 0;
-  margin-right: 10px;
 }
