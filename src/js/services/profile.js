@@ -1,5 +1,6 @@
 module.exports = {
   name: 'David Edmondson',
+  title: 'Web Developer',
   address: '4607 Willis Ave Apt. 14',
   city: 'Sherman Oaks',
   state: 'CA',
