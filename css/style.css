@@ -196,6 +196,29 @@ footer {
           -ms-flex-pack: distribute;
               justify-content: space-around; } }
 
+.view-source {
+  display: none; }
+  @media (min-width: 768px) {
+    .view-source {
+      box-sizing: content-box;
+      background-color: #d5e5e4;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+      color: #444444;
+      text-decoration: none;
+      display: block;
+      padding: 5px;
+      position: fixed;
+      right: -40px;
+      top: 50%;
+      text-align: center;
+      -webkit-transform: rotateZ(90deg);
+              transform: rotateZ(90deg);
+      width: 100px;
+      height: 20px; } }
+  @media print {
+    .view-source {
+      display: none; } }
+
 .icon-header {
   display: -webkit-flex;
   display: -ms-flexbox;
