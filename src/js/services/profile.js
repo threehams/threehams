@@ -18,7 +18,7 @@ module.exports = {
     {
       title: 'Software Engineer',
       startDate: new Date(2012, 6),
-      endDate: new Date(2015, 3),
+      endDate: new Date(2015, 2),
       locationName: 'Sweety High',
       locationAddress: 'Marina Del Rey, CA',
       summary: 'Full-stack developer for a social networking site and mobile app API, using Rails, Node.js, jQuery, and Angular. Promoted from QA Engineer to Software Engineer within first year.',
@@ -33,8 +33,8 @@ module.exports = {
     },
     {
       title: 'QA Engineer',
-      startDate: new Date(2010, 8),
-      endDate: new Date(2011, 12),
+      startDate: new Date(2010, 7),
+      endDate: new Date(2011, 11),
       locationName: 'Meteor Games',
       locationAddress: 'Beverly Hills, CA',
       summary: 'Developed pipeline and testing tools and performed automated testing on four Facebook games. Promoted from QA Tester to QA Engineer within first year.',
