@@ -12,6 +12,17 @@ html {
     margin: 0; }
  }
 
+a {
+  color: #006b64; }
+  a:active {
+    color: #444444; }
+  a:hover, a:focus {
+    color: #444444; }
+  a:link {
+    color: #006b64; }
+  a:visited {
+    color: #80b1ae; }
+
 body {
   font-family: 'Lato', sans-serif;
   color: #444444; }
@@ -54,6 +65,9 @@ strong {
 
 ul {
   padding-left: 20px; }
+
+li {
+  white-space: normal; }
 
 .hide {
   display: none; }
@@ -105,13 +119,14 @@ main {
   display: flex;
   -webkit-flex-flow: column nowrap;
       -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap; }
+          flex-flow: column nowrap;
+  width: 100%; }
   main > section {
     padding: 20px 0;
     margin: 0 30px; }
     @media print, (min-width: 768px) {
       main > section {
-        margin: 0 30px; } }
+        margin: 0 50px 0 30px; } }
   @media print, (min-width: 768px) {
     main {
       padding-top: 20px; } }

@@ -8,7 +8,7 @@ module.exports = {
   email: 'davidaedmondson@gmail.com',
   phone: '818.804.7255',
   link: 'https://github.com/threehams',
-  profile: 'Full-stack developer with background in , with 4 years of experience in web development and test engineering.',
+  profile: 'Full-stack developer with background in systems administration, content management, and automated testing, with 4 years of experience in software development and test engineering.',
   education: {
     degree: 'Bachelor of Fine Arts - Film and Animation',
     college: 'Rochester Institute of Technology',
@@ -39,9 +39,9 @@ module.exports = {
       companyLocation: 'Beverly Hills, CA',
       summary: 'Developed pipeline and testing tools and performed automated testing on four Facebook games. Promoted from QA Tester to QA Engineer within first year.',
       accomplishments: [
-        'Analyzed content and test workflows for 20 staff to identify sources of inefficiency, prioritize tasks, and develop content management and debugging tools, saving 4K man hours and $150K annually.',
+        'Analyzed workflows for 20 staff to identify sources of inefficiency, prioritize tasks, and develop content management and debugging tools, saving 4K man hours and $150K annually.',
         'Created a set of scripts to simplify and validate database entry with Python and Selenium, which reduced related bugs by over 90%, and quadrupled department production.',
-        'Automated ticket validation and population processes with Python, reducing weekly process time by 14 hours.',
+        'Automated ticket validation and population with Python, reducing weekly process time by 14 hours.',
         'Built art verification tools to eliminate technical art issues, including a UI used by eight artists and six testers that allowed the QA Department to test art weeks in advance of in-game appearance.',
         'Taught weekly classes to seven testers on JSON, specific game data formats, keyboard shortcuts, and efficiency.'
       ]
@@ -60,7 +60,7 @@ module.exports = {
     },
     {
       name: 'Game Prototypes',
-      summary: 'Four game prototypes using the Phaser game engine, made in 1-2 days each. Done to explore the design complexity of games, and performance difficulties in maintaining 60 frames per second.',
+      summary: 'Four game prototypes using the Phaser game engine. Done to explore the design complexity of games, and performance difficulties in maintaining 60 frames per second.',
       link: 'https://github.com/threehams/phaser-game-prototypes'
     }
   ],
