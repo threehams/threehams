@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = ['$timeout', function($timeout) {
+module.exports = function() {
   return {
     restrict: 'E',
     replace: true,
     transclude: true,
-    template: require('./offset-list-template.jade'),
+    template: require('./list-template.jade'),
     link: function(scope, element, attrs, ctrl, transclude) {
       transclude(function(clone, scope) {
         element.append(clone);
@@ -20,4 +20,4 @@ module.exports = ['$timeout', function($timeout) {
       });
     }
   };
-}];
+};

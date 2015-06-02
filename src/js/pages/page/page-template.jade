@@ -24,14 +24,14 @@ main
     h2.icon-header
       icon.icon-header-icon(icon-id="#briefcase")
       | Experience
-    offset-list
+    list
       li(ng-repeat='job in ::page.user.jobs')
         project(data='job')
 
     h2.icon-header
       icon.icon-header-icon(icon-id="#fork")
       | Projects
-    offset-list
+    list
       li(ng-repeat='project in ::page.user.projects')
         project(data='project')
 
@@ -39,7 +39,7 @@ main
     h2.icon-header
       icon.icon-header-icon(icon-id="#pencil")
       | Education
-    offset-list
+    list
       li
         h2
           | {{ ::page.user.education.degree }}

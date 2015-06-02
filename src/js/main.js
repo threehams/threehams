@@ -13,7 +13,7 @@ app.controller('PageController', require('./pages/page/page-controller.js'));
 // components (controllers exposed for testing)
 app.directive('icon', require('./components/icon/icon'));
 app.controller('IconController', require('./components/icon/icon-controller.js'));
-app.directive('offsetList', require('./components/offset-list/offset-list'));
+app.directive('list', require('./components/list/list'));
 app.directive('project', require('./components/project/project'));
 app.controller('ProjectController', require('./components/project/project-controller.js'));
 

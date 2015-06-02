@@ -1,6 +1,6 @@
 'use strict';
 
-describe('offset-list', function() {
+describe('list', function() {
   var that = this;
 
   beforeEach(angular.mock.module('Resume'));
@@ -11,7 +11,7 @@ describe('offset-list', function() {
 
   describe('without ng-repeat', function() {
     beforeEach(function() {
-      that.element = angular.element('<offset-list><li>Item 1</li><li>Item 2</li></offset-list>');
+      that.element = angular.element('<list><li>Item 1</li><li>Item 2</li></list>');
       that.element = that.$compile(that.element)(that.scope);
       that.scope.$digest();
     });
@@ -29,7 +29,7 @@ describe('offset-list', function() {
     beforeEach(function() {
       that.scope.items = ['Item 1', 'Item 2'];
 
-      that.element = angular.element('<offset-list><li ng-repeat="item in items"></li></offset-list>');
+      that.element = angular.element('<list><li ng-repeat="item in items"></li></list>');
       that.element = that.$compile(that.element)(that.scope);
       that.scope.$digest();
     });
