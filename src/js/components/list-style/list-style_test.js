@@ -11,7 +11,7 @@ describe('list', function() {
 
   describe('without ng-repeat', function() {
     beforeEach(function() {
-      that.element = angular.element('<list><li>Item 1</li><li>Item 2</li></list>');
+      that.element = angular.element('<ul list-style="offset"><li>Item 1</li><li>Item 2</li></ul>');
       that.element = that.$compile(that.element)(that.scope);
       that.scope.$digest();
     });
@@ -29,7 +29,7 @@ describe('list', function() {
     beforeEach(function() {
       that.scope.items = ['Item 1', 'Item 2'];
 
-      that.element = angular.element('<list><li ng-repeat="item in items"></li></list>');
+      that.element = angular.element('<ul list-style="offset"><li ng-repeat="item in items"></li></ul>');
       that.element = that.$compile(that.element)(that.scope);
       that.scope.$digest();
     });

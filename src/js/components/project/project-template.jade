@@ -1,6 +1,6 @@
 div
-  .subtitle-header
-    h2.subtitle-header-title {{ ::vm.data.title }}
+  subtitle-header
+    h2 {{ ::vm.data.title }}
     strong(ng-if='::vm.data.locationName') {{ ::vm.data.locationName }} - {{ ::vm.data.locationAddress }}
   p
     strong(ng-if='::vm.data.startDate') {{ ::vm.data.startDate | date: 'MMM yyyy' }} - {{ ::vm.data.endDate | date: 'MMM yyyy' }}

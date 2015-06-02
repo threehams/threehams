@@ -1,0 +1,16 @@
+.subtitle-header {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column wrap;
+  margin-bottom: $h2-bottom-margin;
+
+  @include desktop {
+    flex-flow: row wrap;
+    align-items: center;
+  }
+}
+
+.subtitle-header-title {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
