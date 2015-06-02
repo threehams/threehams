@@ -12,7 +12,6 @@ app.controller('PageController', require('./pages/page/page-controller.js'));
 
 // components (controllers exposed for testing)
 app.directive('icon', require('./components/icon/icon'));
-app.controller('IconController', require('./components/icon/icon-controller.js'));
 app.directive('iconHeader', require('./components/icon-header/icon-header'));
 app.directive('subtitleHeader', require('./components/subtitle-header/subtitle-header'));
 app.directive('listStyle', require('./components/list-style/list-style'));

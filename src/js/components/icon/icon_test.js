@@ -8,13 +8,12 @@ describe('icon', function() {
     that.$compile = _$compile_;
     that.scope = $rootScope.$new();
 
-    that.element = angular.element('<icon></icon>');
+    that.element = angular.element('<icon icon-id="#pork"></icon>');
     that.element = that.$compile(that.element)(that.scope);
     that.scope.$digest();
-    that.isolate = that.element.isolateScope();
   }));
 
-  it('creates an isolate scope', function() {
-    expect(that.isolate).to.exist;
+  it('changes the svg id', function() {
+    expect(that.element[0].querySelector('use').getAttribute('xlink:href')).to.eql('#pork');
   });
 });
