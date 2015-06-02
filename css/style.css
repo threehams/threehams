@@ -179,16 +179,17 @@ p {
 header {
   background-color: #d5e5e4;
   text-align: center; }
-  header > section {
-    padding: 20px 0; }
-  header > section:not(:last-child) {
-    border-bottom: 2px solid #444444; }
   @media print, (min-width: 768px) {
     header {
       -webkit-flex: 0 0 310px;
           -ms-flex: 0 0 310px;
               flex: 0 0 310px;
       padding: 20px 20px 20px 20px; } }
+
+.header-section {
+  padding: 20px 0; }
+  .header-section:not(:last-child) {
+    border-bottom: 2px solid #444444; }
 
 main {
   display: -webkit-flex;
@@ -198,15 +199,16 @@ main {
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
   width: 100%; }
-  main > section {
-    padding: 20px 0;
-    margin: 0 30px; }
-    @media print, (min-width: 768px) {
-      main > section {
-        margin: 0 50px 0 30px; } }
   @media print, (min-width: 768px) {
     main {
       padding-top: 20px; } }
+
+.main-section {
+  padding: 20px 0;
+  margin: 0 30px; }
+  @media print, (min-width: 768px) {
+    .main-section {
+      margin: 0 50px 0 30px; } }
 
 .profile {
   border-bottom: 2px solid #444444; }

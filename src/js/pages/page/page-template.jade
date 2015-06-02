@@ -1,26 +1,26 @@
 header
-  section
+  section.header-section
     h1 {{ ::page.user.name }}
     h2 {{ ::page.user.title }}
-  section
+  section.header-section
     h2
       | Expertise
     icon(icon-id="#check")
     ul(list-style='centered')
       li(ng-repeat='expertise in ::page.user.expertise') {{ ::expertise }}
-  section
+  section.header-section
     h2
       | Tech Skill Set
     icon(icon-id="#markup")
     ul(list-style='centered')
       li(ng-repeat='skill in ::page.user.skills') {{ ::skill }}
 main
-  section.profile
+  section.main-section.profile
     icon-header
       icon(icon-id="#profile")
       h2 Profile
     p {{ ::page.user.profile }}
-  section.experience
+  section.main-section.experience
     icon-header
       icon(icon-id="#briefcase")
       h2 Experience

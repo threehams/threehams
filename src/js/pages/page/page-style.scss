@@ -26,17 +26,17 @@ header {
   background-color: $header-color;
   text-align: center;
 
-  & > section {
-    padding: $section-padding-vertical 0;
-  }
-
-  & > section:not(:last-child) {
-    border-bottom: $border-divider;
-  }
-
   @include desktop {
     flex: 0 0 270px + ($padding-side * 2);
     padding: $padding-page-top $padding-side $padding-page-bottom $padding-side;
+  }
+}
+
+.header-section {
+  padding: $section-padding-vertical 0;
+
+  &:not(:last-child) {
+    border-bottom: $border-divider;
   }
 }
 
@@ -45,17 +45,17 @@ main {
   flex-flow: column nowrap;
   width: 100%; // IE Flexbox bug workaround
 
-  & > section {
-    padding: $section-padding-vertical 0;
-    margin: 0 $section-padding-horizontal;
-
-    @include desktop {
-      margin: 0 $section-padding-horizontal + 20px 0 $section-padding-horizontal;
-    }
-  }
-
   @include desktop {
     padding-top: $padding-page-top;
+  }
+}
+
+.main-section {
+  padding: $section-padding-vertical 0;
+  margin: 0 $section-padding-horizontal;
+
+  @include desktop {
+    margin: 0 $section-padding-horizontal + 20px 0 $section-padding-horizontal;
   }
 }
 
