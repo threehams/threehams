@@ -4,13 +4,11 @@ html
     base(href='/')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='')
     title David Edmondson - Full-Stack Developer
     link(href='https://fonts.googleapis.com/css?family=Lato:400,700|Yanone+Kaffeesatz:700', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='css/style.css')
   body(ng-app='Resume')
-    .page(ng-view='')
+    .page(ng-view)
     script(src='js/vendor.js')
     script(src='js/main.js')
     include ./img/icons.svg

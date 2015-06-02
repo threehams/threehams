@@ -5,5 +5,8 @@
 
 // Component styles - Angular doesn't provide a way to package these into the component itself.
 @import '../js/components/icon/icon-style';
+@import '../js/components/list-style/list-style-style';
+@import '../js/components/icon-header/icon-header-style';
+@import '../js/components/subtitle-header/subtitle-header-style';
 @import '../js/components/project/project-style';
 @import '../js/pages/page/page-style';

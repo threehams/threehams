@@ -1,46 +1,45 @@
 header
-  section
-    h1.header-full-name {{ ::page.user.name }}
-    h2.header-job-title {{ ::page.user.title }}
-  section
-    h2.header-cenetered
+  section.header-section
+    h1 {{ ::page.user.name }}
+    h2 {{ ::page.user.title }}
+  section.header-section
+    h2
       | Expertise
     icon(icon-id="#check")
-    ul.centered-list
-      li.centered-list-item(ng-repeat='expertise in ::page.user.expertise') {{ ::expertise }}
-  section
+    ul(list-style='centered')
+      li(ng-repeat='expertise in ::page.user.expertise') {{ ::expertise }}
+  section.header-section
     h2
       | Tech Skill Set
     icon(icon-id="#markup")
-    ul.centered-list
-      li.centered-list-item(ng-repeat='skill in ::page.user.skills') {{ ::skill }}
+    ul(list-style='centered')
+      li(ng-repeat='skill in ::page.user.skills') {{ ::skill }}
 main
-  section.profile
-    h2.icon-header
-      icon.icon-header-icon(icon-id="#profile")
-      span Profile
+  section.main-section.profile
+    icon-header
+      icon(icon-id="#profile")
+      h2 Profile
     p {{ ::page.user.profile }}
-  section.experience
-    h2.icon-header
-      icon.icon-header-icon(icon-id="#briefcase")
-      | Experience
-    ul.offset-list
-      li.offset-list-item(ng-repeat='job in ::page.user.jobs')
+  section.main-section.experience
+    icon-header
+      icon(icon-id="#briefcase")
+      h2 Experience
+    ul(list-style='offset')
+      li(ng-repeat='job in ::page.user.jobs')
         project(data='job')
 
-    h2.icon-header
-      icon.icon-header-icon(icon-id="#fork")
-      | Projects
-    ul.offset-list
-      li.offset-list-item(ng-repeat='project in ::page.user.projects')
+    icon-header
+      icon(icon-id="#fork")
+      h2 Projects
+    ul(list-style='offset')
+      li(ng-repeat='project in ::page.user.projects')
         project(data='project')
 
-
-    h2.icon-header
-      icon.icon-header-icon(icon-id="#pencil")
-      | Education
-    ul.offset-list
-      li.offset-list-item
+    icon-header
+      icon(icon-id="#pencil")
+      h2 Education
+    ul(list-style='offset')
+      li
         h2
           | {{ ::page.user.education.degree }}
         p

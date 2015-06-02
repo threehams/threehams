@@ -26,17 +26,17 @@ header {
   background-color: $header-color;
   text-align: center;
 
-  & > section {
-    padding: $section-padding-vertical 0;
-  }
-
-  & > section:not(:last-child) {
-    border-bottom: $border-divider;
-  }
-
   @include desktop {
     flex: 0 0 270px + ($padding-side * 2);
     padding: $padding-page-top $padding-side $padding-page-bottom $padding-side;
+  }
+}
+
+.header-section {
+  padding: $section-padding-vertical 0;
+
+  &:not(:last-child) {
+    border-bottom: $border-divider;
   }
 }
 
@@ -45,18 +45,26 @@ main {
   flex-flow: column nowrap;
   width: 100%; // IE Flexbox bug workaround
 
-  & > section {
-    padding: $section-padding-vertical 0;
-    margin: 0 $section-padding-horizontal;
-
-    @include desktop {
-      margin: 0 $section-padding-horizontal + 20px 0 $section-padding-horizontal;
-    }
-  }
-
   @include desktop {
     padding-top: $padding-page-top;
   }
+}
+
+.main-section {
+  padding: $section-padding-vertical 0;
+  margin: 0 $section-padding-horizontal;
+
+  @include desktop {
+    margin: 0 $section-padding-horizontal + 20px 0 $section-padding-horizontal;
+  }
+}
+
+.profile {
+  border-bottom: $border-divider;
+}
+
+.experience {
+  flex: 1 0 auto;
 }
 
 footer {
@@ -68,14 +76,6 @@ footer {
   @include desktop {
     padding: 20px $section-padding-horizontal $padding-page-bottom $section-padding-horizontal;
   }
-}
-
-.profile {
-  border-bottom: $border-divider;
-}
-
-.experience {
-  flex: 1 0 auto;
 }
 
 .contact-box {
@@ -133,75 +133,5 @@ footer {
 
   @media print {
     display: none;
-  }
-}
-
-// Reusable components - gradually move into full Angular components
-.icon-header {
-  display: flex;
-  align-items: center;
-}
-
-.icon-header-icon {
-  margin-right: 10px;
-}
-
-.subtitle-header {
-  align-items: flex-start;
-  display: flex;
-  flex-flow: column wrap;
-  margin-bottom: $h2-bottom-margin;
-
-  @include desktop {
-    flex-flow: row wrap;
-    align-items: center;
-  }
-}
-
-.subtitle-header-title {
-  margin-bottom: 0;
-  margin-right: 10px;
-}
-
-.centered-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  line-height: 40px;
-}
-
-.offset-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  @include desktop {
-    margin-left: 25px;
-    border-left: 1px solid $font-color;
-  }
-}
-
-.offset-list-item {
-  margin-bottom: 20px;
-
-  @include desktop {
-    margin-left: 20px;
-    position: relative;
-
-    &:before {
-      $size: 15px;
-
-      background-color: white;
-      border-radius: 50%;
-      border: 2px solid $font-color;
-      content: "";
-      display: block;
-      height: $size;
-      left: -21px - ($size / 2); // -1px to account for border
-      position: absolute;
-      top: ($size / 2);
-      width: $size;
-    }
   }
 }
