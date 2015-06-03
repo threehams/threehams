@@ -23,12 +23,13 @@ module.exports = {
       locationAddress: 'Marina Del Rey, CA',
       summary: 'Full-stack developer for a social networking site and mobile app API, using Rails, Node.js, jQuery, and Angular. Promoted from QA Engineer to Software Engineer within first year.',
       accomplishments: [
+        'Built a Ruby on Rails service that managed all website and mobile user authentication, authorization, account, relationship, and age verification.',
+        'Wrote the backend API for the video creation, organization, and sharing section of the site.',
         'Built a content management system with Rails to organize all photos and videos, contests, and curated community photo/video playlists.',
         'Developed a community moderation system with Rails for approval and rejection of user posted text, photos, and videos.',
-        'Built a Ruby on Rails service that managed all website and mobile user authentication, authorization, account, relationship, and age verification.',
         'Wrote a full suite of load tests, identified, removed, or optimized slow queries, and increased the number of possible requests per second by 400%.',
-        'Wrote the backend API for the video creation, organization, and sharing section of the site.',
-        'Integrated a Node.js API with a third-party moderation system using a reliable message queue.'
+        'Integrated a Node.js API with a third-party moderation system using a reliable message queue.',
+        'Maintained 90% test coverage across all front-end and back-end code.'
       ]
     },
     {
