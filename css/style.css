@@ -28,7 +28,7 @@ body {
   color: #444444; }
   @media print {
     body {
-      zoom: 65%; } }
+      zoom: 64%; } }
 
 h1 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
